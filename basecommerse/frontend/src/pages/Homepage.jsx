@@ -5,6 +5,7 @@ import Card from '../components/Card';
 import axios from 'axios'
 import { useReducer } from 'react';
 import logger from 'use-reducer-logger';
+import Loading from '../components/Loading';
 
 const reducer = (state,action) => {
   switch (action.type) {
@@ -48,7 +49,7 @@ const Home = () => {
      <h1 className="text-green-800 text-4xl">Welcome to the Homepage</h1>
      <h1>features Products</h1>
      {loading ? (
-      <div>Loading....</div>
+      <Loading></Loading>
      ) : error ? (
       <div>{error}</div>
      ) : (

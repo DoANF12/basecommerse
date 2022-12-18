@@ -9,7 +9,7 @@ export default function card({ data }) {
         <div className="flex flex-wrap -mx-1 lg:-mx-4 justify-center">
           {data.map((book) => (
             <div
-              className="p-[1.5px] my-2 mx-2 bg-slate-50 shadow-lgbg-white text-gray-700 w-72 min-h-[10rem] shadow-lg rounded-md overflow-hidden"
+              className="p-[1.5px] my-2 mx-2 bg-slate-50 shadow-lgbg-white text-gray-700 w-60 min-h-[10rem] shadow-lg rounded-md overflow-hidden"
               key={book.codigoISBN}
             >
               <Link to={`/books/${book.codigoISBN}`}>

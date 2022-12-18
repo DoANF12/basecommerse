@@ -11,7 +11,8 @@ const data = {
             descripcion:"Buena tarda",
             rating:"3", 
             numReviews:"200",
-            image:"/images/p2.webp"
+            image:"/images/p2.webp",
+            counInstock:"3"
         },
         {
             titulo:"Gamma",
@@ -24,7 +25,8 @@ const data = {
             descripcion:"Buena tarda",
             rating:"4", 
             numReviews:"200",
-            image:"/images/p3.webp"
+            image:"/images/p3.webp",
+            counInstock:"0"
         },
         {
             titulo:"Romero",
@@ -37,7 +39,8 @@ const data = {
             descripcion:"Buena tarda",
             rating:"4", 
             numReviews:"200",
-            image:"/images/p1.webp"
+            image:"/images/p1.webp",
+            counInstock:"6"
         },
         {
             titulo:"Delat",
@@ -50,7 +53,8 @@ const data = {
             descripcion:"Buena tarda",
             rating:"4", 
             numReviews:"200",
-            image:"/images/p4.webp"
+            image:"/images/p4.webp",
+            counInstock:"2"
         },
         {
             titulo:"Delat",
@@ -63,7 +67,8 @@ const data = {
             descripcion:"Buena tarda",
             rating:"4", 
             numReviews:"200",
-            image:"/images/p4.webp"
+            image:"/images/p4.webp",
+            counInstock:"3"
         },
         {
             titulo:"Romero",
@@ -76,7 +81,8 @@ const data = {
             descripcion:"Buena tarda",
             rating:"4", 
             numReviews:"200",
-            image:"/images/p1.webp"
+            image:"/images/p1.webp",
+            counInstock:"0"
         },
     ]
 };

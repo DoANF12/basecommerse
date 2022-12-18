@@ -14,9 +14,9 @@ const App = () => {
     <>
       <ReactKeycloakProvider authClient={keycloak}>
         <BrowserRouter>
-          <Nav />
+          <Nav className=""/>
           <main>
-            <div className="py-16 xl:py-20 lg:py-20 bg-yellow-900 w-full h-screen">
+            <div className=" bg-slate-300 w-full h-max">
               <div>
                 <Routes>
                   <Route exact path="/*" element={<WelcomePage />} />

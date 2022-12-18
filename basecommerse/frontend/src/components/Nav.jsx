@@ -12,7 +12,7 @@ const Nav = () => {
     ];
     let [open,setOpen]=useState(false);
   return (
-    <div className='shadow-md w-full fixed top-0 left-0'>
+    <div className=' sticky shadow-md w-full top-0 left-0'>
       <div className=' bg-lime-300 md:flex items-center justify-between py-4 md:px-10 px-7'>
       <div className='font-bold text-2xl cursor-pointer flex items-center font-[Poppins] 
       text-gray-800'>
@@ -20,7 +20,7 @@ const Nav = () => {
             <FaClipboardList className='py-1 my-0' name="test"></FaClipboardList>
         </span>
         <span className=' text-lg font-mono uppercase'>
-            Prueba Ecommerce
+            BOOKSTORE
         </span>
       </div>
       
@@ -32,7 +32,7 @@ const Nav = () => {
         {
           Links.map((url)=>(
             <li key={url.name} className=' hover:border hover:border-zinc-900 hover:bg-lime-700 md:ml-8 text-lg md:my-0 py-2 px-2'>
-              <Link to={url.link} className=' tracking-wider px-3 col-span-11 font-mono text-gray-800 hover:text-white duration-500'>{url.name}</Link>
+              <Link to={url.link} onClick={()=>setOpen(!open)} className=' tracking-wider px-3 col-span-11 font-mono text-gray-800 hover:text-white duration-500'>{url.name}</Link>
             </li>
           ))
         }
