@@ -8,6 +8,8 @@ import WelcomePage from "./pages/Homepage";
 import Users from "./pages/Users";
 // import PrivateRoute from "./helpers/PrivateRoute";
 import BooksInfo from "./pages/BooksInfo";
+import CartPage from "./pages/CartPage"
+import SiginPage from "./pages/SigninPage"
 
 const App = () => {
   return (
@@ -22,6 +24,8 @@ const App = () => {
                   <Route exact path="/*" element={<WelcomePage />} />
                   <Route exact path="/books/:codigoISBN" element={<BooksInfo />} />
                   <Route exact path="/users/*" element={<Users />} />
+                  <Route exact path="/cart/*" element={<CartPage />} />
+                  <Route exact path="/signin/*" element={<SiginPage />} />
                 </Routes>
               </div>
             </div>
