@@ -13,9 +13,9 @@ const Card = (props) => {
   } = state;
 
   const addCartHandler = async (item) => {
-    const existItem = cartItems.find((x) => x.id === book.id);
+    const existItem = cartItems.find((x) => x._id === book._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
-    const { data } = await axios.get(`/api/books/${item.id}`);
+    const { data } = await axios.get(`/api/books/${item._id}`);
     if (data.counInstock < quantity) {
       window.alert("Sorry. Book is out of stock");
       return;
