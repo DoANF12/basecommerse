@@ -46,7 +46,7 @@ function BooksInfo() {
     getData();
   }, [isbn13]);
 
-  const {state,dispatch: ctxDispach} = useContext(Store);
+  const {state,dispatch: ctxDispatch} = useContext(Store);
   const {cart} = state;
 
   const addToCartHandler  = async() => {
@@ -57,7 +57,7 @@ function BooksInfo() {
       window.alert('Sorry. Book is out of stock');
       return;
     }
-    ctxDispach({type:'CART_ADD_ITEM', payload: {...book,quantity}})
+    ctxDispatch({type:'CART_ADD_ITEM', payload: {...book,quantity}})
     navigate('/cart')
   }
 

@@ -11,7 +11,7 @@ import {
 
 const CartPage = () => {
   const navigate = useNavigate();
-  const { state, dispatch: ctxDispach } = useContext(Store);
+  const { state, dispatch: ctxDispatch } = useContext(Store);
   const {
     cart: { cartItems },
   } = state;
@@ -22,12 +22,12 @@ const CartPage = () => {
         window.alert('Sorry. Book is out of stock');
         return;
       }
-      ctxDispach({type:'CART_ADD_ITEM', payload: {...item,quantity}})
+      ctxDispatch({type:'CART_ADD_ITEM', payload: {...item,quantity}})
       
   }
 
   const removeItemHandler = (item) => {
-    ctxDispach({type:'CART_REMOVE_ITEM', payload: item});
+    ctxDispatch({type:'CART_REMOVE_ITEM', payload: item});
   }
 
   const checkOutHandler = () => {

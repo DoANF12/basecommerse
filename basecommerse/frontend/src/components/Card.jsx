@@ -7,7 +7,7 @@ import { Store } from "../Store";
 
 const Card = (props) => {
   const { book } = props;
-  const { state, dispatch: ctxDispach } = useContext(Store);
+  const { state, dispatch: ctxDispatch } = useContext(Store);
   const {
     cart: { cartItems },
   } = state;
@@ -20,7 +20,7 @@ const Card = (props) => {
       window.alert("Sorry. Book is out of stock");
       return;
     }
-    ctxDispach({ type: "CART_ADD_ITEM", payload: { ...item, quantity } });
+    ctxDispatch({ type: "CART_ADD_ITEM", payload: { ...item, quantity } });
   };
   return (
     <>
@@ -28,7 +28,7 @@ const Card = (props) => {
         <div className="">
           {/* {data.map((book) => ( */}
           <div
-            className="p-[1.5px] my-2 mx-1 hover:scale-105 transition bg-slate-50 shadow-lgbg-white text-gray-700 w-56 min-h-[10rem] shadow-lg rounded-md overflow-hidden"
+            className="p-[1.5px] my-2 mx-1 hover:scale-105 transition bg-slate-50 shadow-lg  text-gray-700 w-56 min-h-[10rem] rounded-md overflow-hidden"
             // key={book.isbn13}
           >
             <Link
