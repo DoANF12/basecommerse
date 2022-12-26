@@ -5,21 +5,28 @@ import { useContext } from "react";
 import {Store} from "../Store"
 import { useEffect } from "react";
 
-const SigninPage = () => {
+const SignupPage = () => {
     const navigate = useNavigate();
     const {search} = useLocation();
     const redirectUrl = new URLSearchParams(search).get('redirect');
     const redirect = redirectUrl ? redirectUrl : '/';
-
+    
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
 
     const { state, dispatch: ctxDispatch } = useContext(Store);
     const { userInfo } = state;
     const submitHandler = async (e) => {
       e.preventDefault();
+      if(password !== confirmPassword){
+        alert('La contraseña no coinciden');
+        return;
+      }
       try {
-        const {data} = await axios.post('/api/users/signin' , {
+        const {data} = await axios.post('/api/users/signup' , {
+          name,
           email,
           password,
         });
@@ -49,11 +56,20 @@ const SigninPage = () => {
                     <div className="md:p-12 md:mx-6">
                       <div className="text-center">
                         <h4 className="text-xl font-semibold mt-1 mb-12 pb-1">
-                          Inicia sesion
+                          Crea una cuenta
                         </h4>
                       </div>
                       <form onSubmit={submitHandler}>
                         <p className="mb-4">Por favor inicia sesion con tu cuenta</p>
+                        <div className="mb-4">
+                          <input
+                            type="name"
+                            className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                            id="name"
+                            placeholder="Ingresa tu nombre"
+                            onChange={(e) => setName(e.target.value)}
+                          />
+                        </div>
                         <div className="mb-4">
                           <input
                             type="email"
@@ -72,6 +88,15 @@ const SigninPage = () => {
                             onChange={(e) => setPassword(e.target.value)}
                           />
                         </div>
+                        <div className="mb-4">
+                          <input
+                            type="ConfirmPassword"
+                            className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                            id="ConfirmPassword"
+                            placeholder="Ingrese su contraseña"
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                          />
+                        </div>
                         <div className="text-center pt-1 mb-12 pb-1">
                           <button
                             className=" active:bg-yellow-900 bg-gradient-to-r from-stone-800 via-yellow-900 to-stone-700 inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3"
@@ -80,14 +105,15 @@ const SigninPage = () => {
                             data-mdb-ripple-color="light"
                             onClick={submitHandler}
                           >
-                            Log in
+                            Log up
                           </button>
                           <a className="text-gray-500" href="#!">
                             Forgot password?
                           </a>
                         </div>
                         <div className="flex items-center justify-between pb-6">
-                          <Link to={`/signup?redirect=${redirect}`} className="mb-0 mr-2">Don't have an account?</Link>
+                          <div className="mb-0 mr-2">Don't have an account?</div>
+                          <Link to={`/signin?redirect=${redirect}`} >Log in</Link>
                           <button
                             type="button"
                             className="inline-block px-6 py-2 border-2  border-red-600 text-red-600 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
@@ -127,4 +153,4 @@ const SigninPage = () => {
   );
 };
 
-export default SigninPage
+export default SignupPage
