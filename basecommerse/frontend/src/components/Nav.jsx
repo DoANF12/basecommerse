@@ -20,6 +20,7 @@ const Nav = () => {
       ctxDispatch({ type: 'USER_SIGNOUT' });
       localStorage.removeItem('userInfo')
       localStorage.removeItem('shippingAddress')
+      localStorage.removeItem('paymenMethod')
     }
   return (
     <div className=' sticky shadow-md w-full top-0 left-0'>

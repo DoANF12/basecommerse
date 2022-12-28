@@ -6,7 +6,7 @@ const StepChecks = (props) => {
     <div className="w-full py-6">
       <div className="flex">
         <div className="w-1/4">
-          <div className="relative mb-2">
+          <div className="mb-2">
             <div className={`w-10 h-10 mx-auto rounded-full text-lg text-white flex items-center ${props.step1 ? 'bg-green-500':' bg-orange-600'}`}>
               <span className="text-center mx-3 text-white w-full">
                 <FaSignInAlt></FaSignInAlt>
@@ -18,7 +18,7 @@ const StepChecks = (props) => {
         </div>
 
         <div className="w-1/4">
-          <div className="relative mb-2">
+          <div className="mb-2">
             <div className={`w-10 h-10 mx-auto rounded-full text-lg text-white flex items-center ${props.step2 ? 'bg-green-500':' bg-orange-600'}`}>
               <span className="text-center mx-2.5 text-white w-full">
                 <FaShippingFast></FaShippingFast>
@@ -30,7 +30,7 @@ const StepChecks = (props) => {
         </div>
 
         <div className="w-1/4">
-          <div className="relative mb-2">
+          <div className="mb-2">
             <div className={`w-10 h-10 mx-auto rounded-full text-lg text-white flex items-center ${props.step3 ? 'bg-green-500':' bg-orange-600'}`}>
               <span className="text-center mx-2.5 text-gray-600 w-full">
                 <MdPayment></MdPayment>
@@ -42,7 +42,7 @@ const StepChecks = (props) => {
         </div>
 
         <div className="w-1/4">
-          <div className="relative mb-2">
+          <div className="mb-2">
             <div className={`w-10 h-10 mx-auto rounded-full text-lg text-white flex items-center ${props.step4 ? 'bg-green-500':' bg-orange-600'}`}>
               <span className="text-center mx-2.5 text-gray-600 w-full">
                 <FaCheckSquare></FaCheckSquare>

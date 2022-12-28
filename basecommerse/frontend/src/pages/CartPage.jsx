@@ -32,7 +32,6 @@ const CartPage = () => {
 
   const checkOutHandler = () => {
     navigate('/signin?redirect=/shipping');
-    // navigate('/signin')
   }
 
   const book = [];
@@ -118,7 +117,7 @@ const CartPage = () => {
             <div className="flex-wrap -mx-1 justify-center">
               <div
                 className="p-[1.5px] my-2 mx-2 bg-slate-50 shadow-lgbg-white text-gray-700 shadow-lg rounded-md overflow-hidden"
-                key={book.codigoISBN}
+                key={book.isbn13}
               >
                 <div className="p-5 flex-col gap-3">
                   <div className="px-[2px] py-0">

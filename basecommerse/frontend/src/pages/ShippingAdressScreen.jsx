@@ -18,7 +18,7 @@ const ShippingAddressScreen = () => {
     const [country,setCountry] = useState(shippingAddress.country || '');
 
     useEffect(() => {
-        if(userInfo) {
+        if(!userInfo) {
             navigate('/signin?redirect=/shipping')
         }
     },[userInfo, navigate]);

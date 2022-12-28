@@ -12,6 +12,8 @@ import CartPage from "./pages/CartPage"
 import SiginPage from "./pages/SigninPage"
 import SignupPage from "./pages/SignupPage"
 import ShippingAddressScreen from "./pages/ShippingAdressScreen";
+import PaymentPage from "./pages/PaymentPage";
+import OrderPage from "./pages/OrderPage";
 
 const App = () => {
   return (
@@ -27,9 +29,11 @@ const App = () => {
                   <Route exact path="/books/:isbn13" element={<BooksInfo />} />
                   <Route exact path="/users" element={<Users />} />
                   <Route exact path="/cart" element={<CartPage />} />
+                  <Route exact path="/placeorder" element={<OrderPage />} />
                   <Route exact path="/signin" element={<SiginPage />} />
                   <Route exact path="/signup" element={<SignupPage />} />
                   <Route exact path="/shipping" element={<ShippingAddressScreen/>}/>
+                  <Route exact path="/payment" element={<PaymentPage/>}/>
                 </Routes>
               </div>
             </div>
