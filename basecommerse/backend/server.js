@@ -5,6 +5,7 @@ import data from './data.js';
 import seedRouter from './routes/seedRoutes.js';
 import bookRouter from './routes/bookRoutes.js';
 import userRouter from './routes/userRoutes.js';
+import orderRouter from './routes/orderRoutes.js';
 // const mongoose = require('mongoose');
 // const dotenv = require('dotenv');
 // const express = require('express');
@@ -28,6 +29,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api/seed',seedRouter);
 app.use('/api/books', bookRouter);
 app.use('/api/users', userRouter);
+app.use('/api/orders', orderRouter);
+
 
 app.use((err,req,res,next) => {
   res.status(500).send({message: err.message})

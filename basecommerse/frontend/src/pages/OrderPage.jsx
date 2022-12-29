@@ -1,11 +1,31 @@
+import axios from "axios";
+import { useReducer } from "react";
 import { useEffect } from "react";
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import StepChecks from "../components/StepsChecks";
 import { Store } from "../Store";
+import Loading from "../components/Loading"
+
+const reducer = (state, action) => {
+    switch(action.type) {
+        case 'CREATE_REQUEST':
+            return {...state, loading: true};
+        case 'CREATE_SUCESS':
+            return {...state, loading: false};
+        case 'CREATE_FAIL':
+            return {...state,loading: false};
+        default:
+            return state;
+    }
+}
 
 const OrderPage = () => {
     const navigate = useNavigate();
+
+    const [{loading}, dispatch] = useReducer(reducer,{
+        loading: false,
+    });
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart, userInfo } = state;
 
@@ -16,7 +36,35 @@ const OrderPage = () => {
   cart.shippingPrice = cart.itemsPrice > 100 ? round2(0) : round2(10);
   cart.taxPrice = round2(0.15 * cart.itemsPrice);
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;  
-  const placeOrderHandler = async () => {};
+  const placeOrderHandler = async () => {
+    try{
+        dispatch({ type: 'CREATE_REQUEST' });
+        const {data} = await axios.post(
+            '/api/orders',
+            {
+                orderItems: cart.cartItems,
+                shippingAddress: cart.shippingAddress,
+                paymentMethod: cart.paymentMethod,
+                itemsPrice: cart.itemsPrice,
+                shippingPrice: cart.shippingPrice,
+                taxPrice: cart.taxPrice,
+                totalPrice: cart.totalPrice,
+            },
+            {
+                headers: {
+                  authorization: `Bearer ${userInfo.token}`,
+                },
+            }
+        );
+        ctxDispatch({type:'CART_CLEAR'});
+        dispatch({type:'CREATE_SUCCESS'});
+        localStorage.removeItem('cartItems');
+        navigate(`/order/${data.order._id}`);
+    }catch(err){
+        dispatch({type: 'CREATE_FAIL'});
+        alert('Error')
+    }
+  };
 
   useEffect(() => {
     if(!cart.paymentMethod){
@@ -140,6 +188,7 @@ const OrderPage = () => {
                     Continuar la compra
                 </button>
               </div>
+              {loading && <Loading></Loading>}
             </div>
           </div>
           <Link className=" text-sky-400 hover:text-blue-900" to="/cart">
