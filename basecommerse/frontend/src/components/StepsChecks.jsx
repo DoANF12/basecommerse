@@ -7,7 +7,7 @@ const StepChecks = (props) => {
       <div className="flex">
         <div className="w-1/4">
           <div className="mb-2">
-            <div className={`w-10 h-10 mx-auto rounded-full text-lg text-white flex items-center ${props.step1 ? 'bg-green-500':' bg-orange-600'}`}>
+            <div className={`w-10  h-10 mx-auto rounded-full text-lg text-white flex items-center ${props.step1 ? 'bg-green-500':' bg-orange-600'}`}>
               <span className="text-center mx-3 text-white w-full">
                 <FaSignInAlt></FaSignInAlt>
               </span>

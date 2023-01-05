@@ -73,7 +73,7 @@ const OrderPage = () => {
   }, [cart, navigate])
 
   return (
-    <div className="container  mx-auto  md:w-full h-screen">
+    <div className="container  mx-auto  md:w-full">
       <StepChecks step1 step2 step3 step4></StepChecks>
       <h1 className=" font-thin text-2xl mx-8 py-2">Vista de la orden</h1>
       <div className="">
@@ -153,7 +153,7 @@ const OrderPage = () => {
                 </div>
               ))}
             </div>
-            <div className="col-span-2 sm:col-span-3 md:col-span-2 lg:col-span-2 items-center  justify-center border-l-2 border-r-2 border-gray-300 rounded-xl p-6 ">
+            <div className="col-span-3 sm:col-span-3 md:col-span-2 lg:col-span-2 items-center  justify-center border-l-2 border-r-2 border-gray-300 rounded-xl p-6 ">
               <div className="flex-wrap -mx-1 justify-center">
                 <h5 className="text-gray-900 text-xl leading-tight font-medium mb-2">
                     Articulos

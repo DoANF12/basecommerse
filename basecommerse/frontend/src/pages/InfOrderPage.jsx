@@ -58,12 +58,12 @@ const InfOrderPage = () => {
         <div>
             {loading ? (<Loading></Loading>)
             : error ? (
-                <div class="alert bg-red-400 rounded-lg py-5 px-6 mb-3 text-base text-yellow-700 inline-flex items-center w-full alert-dismissible fade show" role="alert">
+                <div className="alert bg-red-400 rounded-lg py-5 px-6 mb-3 text-base text-yellow-700 inline-flex items-center w-full alert-dismissible fade show" role="alert">
                     <strong class="mr-1">Error</strong> 
                     <button type="button" class="btn-close box-content w-4 h-4 p-1 ml-auto text-yellow-900 border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-yellow-900 hover:opacity-75 hover:no-underline" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             ) : (
-                <div className="container  mx-auto  md:w-full h-screen">
+                <div className="container  mx-auto  md:w-full">
                 <h1 className=" font-thin text-2xl mx-8 py-2">Orden {orderId}</h1>
                     <div className="block p-4 mx-6 rounded-lg shadow-lg bg-white">
                     <h5 className="text-gray-900 text-xl leading-tight font-medium mb-2">
@@ -77,14 +77,14 @@ const InfOrderPage = () => {
                         ,{order.shippingAddress.postalCode}, {order.shippingAddress.country}
                     </p>
                     {order.isDelivered ? (
-                        <div class="alert bg-green-400 rounded-lg py-5 px-6 mb-3 text-base text-yellow-700 inline-flex items-center w-full alert-dismissible fade show" role="alert">
-                            <strong class="mr-1">Entregada a</strong> {order.deliveredAt}
-                            <button type="button" class="btn-close box-content w-4 h-4 p-1 ml-auto text-yellow-900 border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-yellow-900 hover:opacity-75 hover:no-underline" data-bs-dismiss="alert" aria-label="Close"></button>
+                        <div className="alert bg-green-400 rounded-lg py-5 px-6 mb-3 text-base text-yellow-700 inline-flex items-center w-full alert-dismissible fade show" role="alert">
+                            <strong className="mr-1">Entregada a</strong> {order.deliveredAt}
+                            <button type="button" className="btn-close box-content w-4 h-4 p-1 ml-auto text-yellow-900 border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-yellow-900 hover:opacity-75 hover:no-underline" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     ) : (
-                        <div class="alert bg-red-400 rounded-lg py-5 px-6 mb-3 text-base text-yellow-700 inline-flex items-center w-full alert-dismissible fade show" role="alert">
-                            <strong class="mr-1">No </strong> entregada
-                            <button type="button" class="btn-close box-content w-4 h-4 p-1 ml-auto text-yellow-900 border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-yellow-900 hover:opacity-75 hover:no-underline" data-bs-dismiss="alert" aria-label="Close"></button>
+                        <div className="alert bg-red-400 rounded-lg py-5 px-6 mb-3 text-base text-yellow-700 inline-flex items-center w-full alert-dismissible fade show" role="alert">
+                            <strong className="mr-1">No </strong> entregada
+                            <button type="button" className="btn-close box-content w-4 h-4 p-1 ml-auto text-yellow-900 border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-yellow-900 hover:opacity-75 hover:no-underline" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     )
 
@@ -98,14 +98,14 @@ const InfOrderPage = () => {
                             Metodo: {order.paymentMethod}
                         </p>
                         {order.isPaid ? (
-                            <div class="alert bg-green-400 rounded-lg py-5 px-6 mb-3 text-base text-yellow-700 inline-flex items-center w-full alert-dismissible fade show" role="alert">
-                                <strong class="mr-1">Pagado en</strong> {order.paidAt}
-                                <button type="button" class="btn-close box-content w-4 h-4 p-1 ml-auto text-yellow-900 border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-yellow-900 hover:opacity-75 hover:no-underline" data-bs-dismiss="alert" aria-label="Close"></button>
+                            <div className="alert bg-green-400 rounded-lg py-5 px-6 mb-3 text-base text-yellow-700 inline-flex items-center w-full alert-dismissible fade show" role="alert">
+                                <strong className="mr-1">Pagado en</strong> {order.paidAt}
+                                <button type="button" className="btn-close box-content w-4 h-4 p-1 ml-auto text-yellow-900 border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-yellow-900 hover:opacity-75 hover:no-underline" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         ) : (
-                            <div class="alert bg-red-400 rounded-lg py-5 px-6 mb-3 text-base text-yellow-700 inline-flex items-center w-full alert-dismissible fade show" role="alert">
-                                <strong class="mr-1">No </strong> pagado
-                                <button type="button" class="btn-close box-content w-4 h-4 p-1 ml-auto text-yellow-900 border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-yellow-900 hover:opacity-75 hover:no-underline" data-bs-dismiss="alert" aria-label="Close"></button>
+                            <div className="alert bg-red-400 rounded-lg py-5 px-6 mb-3 text-base text-yellow-700 inline-flex items-center w-full alert-dismissible fade show" role="alert">
+                                <strong className="mr-1">No </strong> pagado
+                                <button type="button" className="btn-close box-content w-4 h-4 p-1 ml-auto text-yellow-900 border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-yellow-900 hover:opacity-75 hover:no-underline" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         )}        
                     </div>

@@ -6,7 +6,6 @@ import {
   FaPlusCircle,
   FaMinusCircle,
   FaTrashAlt,
-  FaHeart,
 } from "react-icons/fa";
 
 const CartPage = () => {
